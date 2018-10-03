@@ -8,6 +8,7 @@ A simple React + Webpack 4 boilerplate with dev server to get your development s
 - [x] React 16 (16.5.2)
 - [x] Webpack 4 (4.20.2)
 - [x] Webpack dev server
+- [x] ES6, JSX, Babel 7
 - [x] SASS support
 - [x] Seperate stylesheet
 - [x] PostCSS
