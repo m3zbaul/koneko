@@ -1,9 +1,6 @@
 # koneko
 A simple React + Webpack 4 boilerplate with dev server to get your development started
 
-![koneko-eating-donut](https://i.imgur.com/oQXITfo.gif")
-> ...I have become a hellcat. I won’t lose!
-
 ## What's included:
 
 - [x] React 16 (16.5.2)
