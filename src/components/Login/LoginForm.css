@@ -1,0 +1,40 @@
+h4 {
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.control-label {
+  text-align: left;
+  font-weight: 500;
+}
+.form-control {
+  border: 2px solid #e6e6e6;
+  border-radius: 0px;
+  height: 40px;
+  background: #F9F9F9;
+  font-weight: 500;
+}
+.form-control-feedback {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+}
+.form-control-feedback::before {
+  color: #999;
+}
+.glyphicon {
+  cursor: pointer;
+  pointer-events: all;
+}
+.btn-login {
+  background: #003539;
+  width: 100%;
+  color: #fff;
+  padding: 15px;
+  border: 0px;
+  border-radius: 2px;
+  margin-top: -20px;
+  font-weight: 500;
+}
