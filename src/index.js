@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom' // react-router v4
 import { ConnectedRouter } from 'connected-react-router'
 import configureStore, { history } from './store/configureStore'
 import './index.css'
@@ -19,9 +18,7 @@ const store = configureStore(INITIAL_STATE)
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Router>
-        <Routes />
-      </Router>
+      <Routes />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
