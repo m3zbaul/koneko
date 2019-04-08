@@ -1,23 +1,46 @@
-import {
-  LOGIN_ATTEMPTED
-} from '../actions/auth'
+import { fromJS } from 'immutable';
 
-const INITIAL_STATE = {
-  user: null
-}
+import * as actions from '../actions/constants';
 
-export default function auth(state = INITIAL_STATE, action) {
+
+const initialState = {
+  user: null,
+  login: {
+    started: false,
+    error: null
+  }
+};
+
+export default function auth(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_ATTEMPTED:
-      return {
-        ...state,
-        init: false,
-        signIn: {
-          attempted: false,
-          error: null
-        }
+    case actions.LOGIN_STARTED:
+    return {
+      ...state,
+      login: {
+        started: true,
+        error: null
       }
+    };
+
+    case actions.LOGIN_SUCCEEDED:
+    return {
+      user: action.payload,
+      login: {
+        started: false,
+        error: null
+      }
+    };
+
+    case actions.LOGIN_FAILED:
+    return {
+      ...state,
+      login: {
+        started: false,
+        error: action.payload
+      }
+    };
+
     default:
-      return state
+      return state;
   }
 }

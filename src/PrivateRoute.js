@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => (
@@ -11,6 +11,6 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
         : <Redirect to='/login' />
     )}
   />
-)
+);
 
-export default PrivateRoute
+export default PrivateRoute;

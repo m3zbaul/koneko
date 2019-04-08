@@ -1,20 +1,4 @@
-import apiEndpoint from '../utils/api'
+import * as actions from './constants';
 
 
-const headers = {
-  'content-type': 'application/json'
-}
-
-export const LOGIN_ATTEMPTED = 'LOGIN_ATTEMPTED'
-
-export function loginRequest(email, password) {
-  return dispatch => {
-    const payload = {
-      username: email,
-      password: password
-    }
-    apiEndpoint.post('/auth', payload, { headers })
-      .then(response => console.log(response))
-      .catch(error => console.log(error))
-  }
-}
+export const login = (payload) => ({ type: actions.LOGIN_STARTED, payload });

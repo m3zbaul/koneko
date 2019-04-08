@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { withRouter } from 'react-router-dom'
-import './LoginScreen.css'
-import { loginRequest } from '../actions/auth'
-import { LoginForm } from '../components'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { login } from '../actions/auth';
+import { LoginForm } from '../components';
 
 
 class LoginScreen extends Component {
@@ -25,10 +24,10 @@ class LoginScreen extends Component {
   }
 
   onLoginClick = (event) => {
-    event.preventDefault()
-    const email = this.state.email.value
-    const password = this.state.password.value
-    this.props.loginRequest(email, password)
+    event.preventDefault();
+    const email = this.state.email.value;
+    const password = this.state.password.value;
+    this.props.login({ email, password });
   }
 
   onPasswordChange = (event) => {
@@ -50,17 +49,15 @@ class LoginScreen extends Component {
     } = this.state;
 
     return (
-      <div className="login-bg">
-        <div className="login">
-          <LoginForm
-            email={email}
-            password={password}
-            onEmailChange={this.onEmailChange}
-            onLoginClick={this.onLoginClick}
-            onPasswordChange={this.onPasswordChange}
-            togglePasswordVisibility={this.togglePasswordVisibility}
-          />
-        </div>
+      <div>
+        <LoginForm
+          email={email}
+          password={password}
+          onEmailChange={this.onEmailChange}
+          onLoginClick={this.onLoginClick}
+          onPasswordChange={this.onPasswordChange}
+          togglePasswordVisibility={this.togglePasswordVisibility}
+        />
       </div>
     )
   }
@@ -71,7 +68,7 @@ function mapStateToProps() {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loginRequest }, dispatch)
+  return bindActionCreators({ login }, dispatch)
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginScreen))

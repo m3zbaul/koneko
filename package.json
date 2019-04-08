@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "3.4.1",
     "connected-react-router": "^6.3.1",
     "history": "^4.7.2",
+    "immutable": "^4.0.0-rc.12",
     "react": "^16.8.1",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.1",
@@ -15,7 +15,10 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-observable": "^1.1.0",
+    "redux-persist": "^5.10.0",
+    "reselect": "^4.0.0",
+    "rxjs": "^6.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
