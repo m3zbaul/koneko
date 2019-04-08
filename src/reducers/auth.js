@@ -4,7 +4,10 @@ import * as actions from '../actions/constants';
 
 
 const initialState = {
-  user: null,
+  user: {
+    authenticated: false,
+    token: null
+  },
   login: {
     started: false,
     error: null

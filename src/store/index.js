@@ -9,7 +9,10 @@ import rootEpic from '../epics';
 
 const initialState = {
   auth: {
-    user: null,
+    user: {
+      authenticated: false,
+      token: null
+    },
     login: {
       started: false,
       error: null

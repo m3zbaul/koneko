@@ -6,7 +6,7 @@ import { login } from '../actions/auth';
 import { LoginForm } from '../components';
 
 
-class LoginScreen extends Component {
+class Login extends Component {
   state = {
     email: {
       value: ''
@@ -71,4 +71,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ login }, dispatch)
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginScreen))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

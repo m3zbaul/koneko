@@ -1,39 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import * as authSelectors from './selectors/auth';
 import PrivateRoute from './PrivateRoute';
-import LoginScreen from './screens/LoginScreen';
+import LoginScreen from './screens/Login';
+import NotFoundScreen from './screens/NotFound';
 
 
 class Routes extends Component {
   render() {
-    const { userInfo } = this.props;
+    const { authenticated } = this.props;
 
     return (
       <Switch>
-        <PrivateRoute
-          exact
-          path='/'
-          component={LoginScreen}
-          userInfo={userInfo}
-        />
-        <Route
-          path='/login'
-          component={LoginScreen} 
-        />
-        <PrivateRoute
-          render={() => (<div>Miss</div>)}
-          userInfo={userInfo}
-        />
+        <PrivateRoute exact path='/' component={LoginScreen} authenticated={authenticated}/>
+        <Route path='/login' component={LoginScreen}/>
+        <Route component={NotFoundScreen}/>
       </Switch>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    userInfo: state.auth.userInfo
-  };
-}
+const mapStateToProps = createStructuredSelector({
+  user: authSelectors.makeSelectUser(),
+  authenticated: authSelectors.makeSelectAuthenticated()
+});
 
 export default withRouter(connect(mapStateToProps)(Routes));
