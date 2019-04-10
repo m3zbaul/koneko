@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react'
 import { history, persistor, store } from './store';
 import './index.css';
-import Routes from './Routes';
+import { RoutesComponent } from './routes';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -14,7 +14,7 @@ ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <Router history={history}>
-        <Routes />
+        <RoutesComponent/>
       </Router>
     </PersistGate>
   </Provider>,

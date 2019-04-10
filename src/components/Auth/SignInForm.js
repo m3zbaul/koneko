@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, InputGroup, Tooltip, Intent, Button, Text } from '@blueprintjs/core';
 
 
-class LoginForm extends Component {
+class SignInForm extends Component {
   state = {
     showPassword: false
   };
@@ -77,4 +77,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default SignInForm;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, InputGroup, Tooltip, Intent, Button, Text } from '@blueprintjs/core';
 
 
-class LoginForm extends Component {
+class SignUpForm extends Component {
   state = {
     showPassword: false
   };
@@ -14,7 +14,7 @@ class LoginForm extends Component {
       handle,
       password,
       onHandleChange,
-      onSignInClick,
+      onSignUpClick,
       onPasswordChange
     } = this.props;
     const { showPassword } = this.state;
@@ -33,7 +33,7 @@ class LoginForm extends Component {
 
     return (
       <div>
-        <Text tagName="h2">Sign In</Text>
+        <Text tagName="h2">Sign Up</Text>
         <FormGroup
           helperText="Enter username or email"
           label="Username or Email"
@@ -68,8 +68,8 @@ class LoginForm extends Component {
         <FormGroup
         >
           <Button
-            text="Sign In"
-            onClick={onSignInClick}
+            text="Sign Up"
+            onClick={onSignUpClick}
           />
         </FormGroup>
       </div>
@@ -77,4 +77,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default SignUpForm;
