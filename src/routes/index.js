@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
+import { Route, Switch } from 'react-router-dom';
 import App from '../App';
 import SignInScreen from '../screens/SignIn';
 import SignUpScreen from '../screens/SignUp';
 import NotFoundScreen from '../screens/NotFound';
 import DashboardScreen from '../screens/Dashboard';
 import RequireAuth from '../components/Auth/RequireAuth';
-import * as authSelectors from '../selectors/auth';
 
 
 const routes = {
@@ -23,7 +20,7 @@ class Routes extends Component {
     return (
       <App>
         <Switch>
-          <Route exact path={routes.INDEX} component={DashboardScreen}/>
+          <Route exact path={routes.INDEX} component={RequireAuth(DashboardScreen)}/>
           <Route path={routes.SIGN_IN} component={SignInScreen}/>
           <Route path={routes.SIGN_UP} component={SignUpScreen}/>
           <Route component={RequireAuth(NotFoundScreen)}/>
@@ -33,10 +30,6 @@ class Routes extends Component {
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  authenticated: authSelectors.makeSelectAuthenticated()
-});
-
-export const RoutesComponent = withRouter(connect(mapStateToProps)(Routes));
+export const RoutesComponent = Routes;
 
 export default routes;

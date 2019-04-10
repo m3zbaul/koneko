@@ -11,8 +11,17 @@ html, body, #root, #main-container {
   height: 100%;
 }
 
+#main-container {
+  padding-top: 65px; /* navbar height + normal padding */
+}
+
 .bp3-button {
   outline: none;
+}
+
+.bp3-navbar-group > button,
+.bp3-navbar-group > span {
+  margin-left: 5px;
 }
 
 .column {
@@ -23,7 +32,7 @@ html, body, #root, #main-container {
   width: 85%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 15px;
 }
 
 .left {

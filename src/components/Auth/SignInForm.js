@@ -12,10 +12,11 @@ class SignInForm extends Component {
   render() {
     const {
       handle,
-      password,
+      loading,
       onHandleChange,
       onSignInClick,
-      onPasswordChange
+      onPasswordChange,
+      password
     } = this.props;
     const { showPassword } = this.state;
 
@@ -70,6 +71,7 @@ class SignInForm extends Component {
           <Button
             text="Sign In"
             onClick={onSignInClick}
+            loading={loading}
           />
         </FormGroup>
       </div>

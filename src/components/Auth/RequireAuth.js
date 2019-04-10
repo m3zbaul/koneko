@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import routes from '../../routes';
 import * as authSelectors from '../../selectors/auth';
@@ -13,14 +12,14 @@ export default function (ComposedComponent) {
       router: PropTypes.object
     }
 
-    componentWillMount() {
+    componentDidMount() {
       if (!this.props.authenticated) {
         this.props.history.push(routes.SIGN_IN);
       }
     }
 
-    componentWillUpdate(nextProps) {
-      if (!nextProps.authenticated) {
+    componentDidUpdate() {
+      if (!this.props.authenticated) {
         this.props.history.push(routes.SIGN_IN);
       }
     }
@@ -30,9 +29,13 @@ export default function (ComposedComponent) {
     }
   }
 
-  const mapStateToProps = createStructuredSelector({
-    authenticated: authSelectors.makeSelectAuthenticated()
-  });
+  const makeMapStateToProps = () => {
+    const selectAuthenticated = authSelectors.makeSelectAuthenticated();
+    const mapStateToProps = (state) => ({
+      authenticated: selectAuthenticated(state)
+    });
+    return mapStateToProps;
+  };
 
-  return withRouter(connect(mapStateToProps)(RequireAuth));
+  return withRouter(connect(makeMapStateToProps)(RequireAuth));
 }

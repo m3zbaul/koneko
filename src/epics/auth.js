@@ -1,27 +1,32 @@
 import { ofType } from 'redux-observable';
-import { Observable, from } from 'rxjs';
+import { Observable, from, of, concat } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import axios from 'axios';
+import { history } from '../store';
+import routes from '../routes';
 
 import * as actions from '../actions/constants';
+import * as authActions from '../actions/auth';
 
-export const loginEpic = action$ =>
+export const signInEpic = action$ =>
   action$.pipe(
-    ofType(actions.LOGIN_STARTED),
+    ofType(actions.SIGN_IN_STARTED),
     mergeMap(action =>
       from(axios.post('https://reqres.in/api/login', action.payload))
-        .map(response => ({
-          type: actions.LOGIN_SUCCEEDED,
-          payload: response.data
-        }))
-      .catch(error => Observable.ofType(actions.LOGIN_FAILED))
+        .pipe(
+          mergeMap(response => [
+            authActions.signInSuccess(response.data)
+          ]),
+          catchError(error => of(authActions.signInFailure(error.response)))
+        )
     )
   );
 
-export const onLoginSucceededEpic = action$ =>
+export const signOutEpic = action$ =>
   action$.pipe(
-    ofType(actions.LOGIN_SUCCEEDED),
-    map(() => ({
-      type: actions.DUMMY
-    }))
+    ofType(actions.SIGN_OUT_STARTED),
+    mergeMap(action => [
+      history.push(routes.SIGN_IN),
+      console.log(action, 'fuck')
+    ])
   );

@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector, createStructuredSelector } from 'reselect';
 
 const selectAuth = state => state.auth;
 const selectUser = state => state.auth.user;
@@ -10,12 +10,17 @@ const makeSelectToken = () => createSelector(
 
 const makeSelectAuthenticated = () => createSelector(
   selectUser,
-  userState => userState.authenticated,
+  userState => userState.token,
 );
 
-const makeSelectSession = () => createSelector(
+const makeSelectSignIn = () => createSelector(
   selectAuth,
-  authState => authState.token,
+  authState => authState.signIn,
+);
+
+const makeSelectSignUp = () => createSelector(
+  selectAuth,
+  authState => authState.signIn,
 );
 
 export {
@@ -23,5 +28,6 @@ export {
   selectUser,
   makeSelectAuthenticated,
   makeSelectToken,
-  makeSelectSession
+  makeSelectSignIn,
+  makeSelectSignUp
 };

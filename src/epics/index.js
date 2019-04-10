@@ -3,12 +3,12 @@
  */
 
 import { combineEpics } from 'redux-observable';
-import { loginEpic, onLoginSucceededEpic } from './auth';
+import { signInEpic, signOutEpic } from './auth';
 
 
 const rootEpic = combineEpics(
-  loginEpic,
-  onLoginSucceededEpic
+  signInEpic,
+  // signOutEpic
 );
 
 export default rootEpic;

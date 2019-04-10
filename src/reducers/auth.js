@@ -1,14 +1,15 @@
-import { fromJS } from 'immutable';
-
 import * as actions from '../actions/constants';
 
 
 const initialState = {
   user: {
-    authenticated: false,
     token: null
   },
-  login: {
+  signIn: {
+    started: false,
+    error: null
+  },
+  signUp: {
     started: false,
     error: null
   }
@@ -16,30 +17,42 @@ const initialState = {
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case actions.LOGIN_STARTED:
+    case actions.SIGN_IN_STARTED:
     return {
       ...state,
-      login: {
+      signIn: {
         started: true,
         error: null
       }
     };
 
-    case actions.LOGIN_SUCCEEDED:
+    case actions.SIGN_IN_SUCCEEDED:
     return {
-      user: action.payload,
-      login: {
+      ...state,
+      user: {
+        ...state.user,
+        ...action.payload
+      },
+      signIn: {
         started: false,
         error: null
       }
     };
 
-    case actions.LOGIN_FAILED:
+    case actions.SIGN_IN_FAILED:
     return {
       ...state,
-      login: {
+      signIn: {
         started: false,
         error: action.payload
+      }
+    };
+
+    case actions.SIGN_OUT_STARTED:
+    return {
+      ...state,
+      user: {
+        token: null
       }
     };
 

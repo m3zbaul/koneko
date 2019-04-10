@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TopNavigationMenu from './components/Menu/TopNavigation';
+import Navbar from './components/Navbar';
 
 
 class App extends Component {
   render() {
     return (
       <div id='main-container' className='container'>
-        <TopNavigationMenu/>
+        <Navbar/>
         {this.props.children}
       </div>
     );

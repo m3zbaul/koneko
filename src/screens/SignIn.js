@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { login } from '../actions/auth';
-import { SignInForm } from '../components/Auth/SignInForm';
+import SignInForm from '../components/Auth/SignInForm';
+import routes from '../routes';
+import * as authActions from '../actions/auth';
+import * as authSelectors from '../selectors/auth';
 
 
 class SignIn extends Component {
@@ -13,6 +14,18 @@ class SignIn extends Component {
     },
     password: {
       value: ''
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.authenticated) {
+      this.props.history.push(routes.INDEX);
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.authenticated) {
+      this.props.history.push(routes.INDEX);
     }
   }
 
@@ -26,7 +39,7 @@ class SignIn extends Component {
     event.preventDefault();
     const handle = this.state.handle.value;
     const password = this.state.password.value;
-    this.props.login({ handle, password });
+    this.props.onSignIn({ username: handle, password });
   }
 
   onPasswordChange = (event) => {
@@ -36,10 +49,8 @@ class SignIn extends Component {
   }
 
   render() {
-    const {
-      handle,
-      password
-    } = this.state;
+    const { signIn } = this.props;
+    const { handle, password } = this.state;
 
     return (
       <div>
@@ -49,18 +60,30 @@ class SignIn extends Component {
           onHandleChange={this.onHandleChange}
           onSignInClick={this.onSignInClick}
           onPasswordChange={this.onPasswordChange}
+          loading={signIn.started}
+          error={signIn.error}
         />
       </div>
     )
   }
 }
 
-function mapStateToProps() {
-  return {}
-}
+const makeMapStateToProps = () => {
+  const selectSignIn = authSelectors.makeSelectSignIn();
+  const selectAuthenticated = authSelectors.makeSelectAuthenticated();
+  const mapStateToProps = (state) => ({
+    signIn: selectSignIn(state),
+    authenticated: selectAuthenticated(state)
+  });
+  return mapStateToProps;
+};
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch)
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSignIn: (payload) => {
+      dispatch(authActions.signInStart(payload))
+    }
+  };
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));
+export default withRouter(connect(makeMapStateToProps, mapDispatchToProps)(SignIn));
