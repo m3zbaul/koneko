@@ -16,7 +16,7 @@ const initialState = {
       started: false,
       error: null
     },
-    signUp: {
+    signOut: {
       started: false,
       error: null
     }

@@ -1,11 +1,6 @@
+export const SIGN_IN_FAILED = 'user/SIGN_IN_FAILED';
 export const SIGN_IN_STARTED = 'user/SIGN_IN_STARTED';
 export const SIGN_IN_SUCCEEDED = 'user/SIGN_IN_SUCCEEDED';
-export const SIGN_IN_FAILED = 'user/SIGN_IN_FAILED';
+export const SIGN_OUT_FAILED = 'user/SIGN_OUT_FAILED';
 export const SIGN_OUT_STARTED = 'user/SIGN_OUT_STARTED';
 export const SIGN_OUT_SUCCEEDED = 'user/SIGN_OUT_SUCCEEDED';
-export const SIGN_OUT_FAILED = 'user/SIGN_OUT_FAILED';
-export const SIGN_UP_STARTED = 'user/SIGN_UP_STARTED';
-export const SIGN_UP_SUCCEEDED = 'user/SIGN_UP_SUCCEEDED';
-export const SIGN_UP_FAILED = 'user/SIGN_UP_FAILED';
-export const LOGOUT = 'user/LOGOUT';
-export const DUMMY = 'user/DUMMY';

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
 
 
 class App extends Component {
   render() {
     return (
       <div id='main-container' className='container'>
-        <Navbar/>
+        <h2>React-boilerplate</h2>
         {this.props.children}
       </div>
     );

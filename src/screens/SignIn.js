@@ -8,15 +8,6 @@ import * as authSelectors from '../selectors/auth';
 
 
 class SignIn extends Component {
-  state = {
-    handle: {
-      value: ''
-    },
-    password: {
-      value: ''
-    }
-  }
-
   componentDidMount() {
     if (this.props.authenticated) {
       this.props.history.push(routes.INDEX);
@@ -29,39 +20,19 @@ class SignIn extends Component {
     }
   }
 
-  onHandleChange = (event) => {
-    let handle = { ...this.state.handle };
-    handle.value = event.target.value;
-    this.setState({ handle });
-  }
-
   onSignInClick = (event) => {
     event.preventDefault();
-    const handle = this.state.handle.value;
-    const password = this.state.password.value;
-    this.props.onSignIn({ username: handle, password });
-  }
-
-  onPasswordChange = (event) => {
-    let password = { ...this.state.password }
-    password.value = event.target.value
-    this.setState({ password })
+    this.props.onSignIn({ username: 'example', password: 'example' });
   }
 
   render() {
     const { signIn } = this.props;
-    const { handle, password } = this.state;
 
     return (
       <div>
         <SignInForm
-          handle={handle.value}
-          password={password.value}
-          onHandleChange={this.onHandleChange}
           onSignInClick={this.onSignInClick}
-          onPasswordChange={this.onPasswordChange}
-          loading={signIn.started}
-          error={signIn.error}
+          signIn={signIn}
         />
       </div>
     )

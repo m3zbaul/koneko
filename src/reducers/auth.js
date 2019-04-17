@@ -9,7 +9,7 @@ const initialState = {
     started: false,
     error: null
   },
-  signUp: {
+  signOut: {
     started: false,
     error: null
   }
@@ -44,15 +44,38 @@ export default function auth(state = initialState, action) {
       ...state,
       signIn: {
         started: false,
-        error: action.payload
+        error: action.payload.error
       }
     };
 
     case actions.SIGN_OUT_STARTED:
     return {
       ...state,
+      signOut: {
+        started: true,
+        error: null
+      }
+    };
+
+    case actions.SIGN_OUT_SUCCEEDED:
+    return {
+      ...state,
       user: {
+        ...state.user,
         token: null
+      },
+      signOut: {
+        started: false,
+        error: null
+      }
+    };
+
+    case actions.SIGN_OUT_FAILED:
+    return {
+      ...state,
+      signOut: {
+        started: false,
+        error: action.payload.error
       }
     };
 

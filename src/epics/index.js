@@ -8,7 +8,7 @@ import { signInEpic, signOutEpic } from './auth';
 
 const rootEpic = combineEpics(
   signInEpic,
-  // signOutEpic
+  signOutEpic
 );
 
 export default rootEpic;

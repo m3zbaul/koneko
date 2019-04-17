@@ -1,8 +1,7 @@
 import { ofType } from 'redux-observable';
 import { Observable, from, of, concat } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, delay } from 'rxjs/operators';
 import axios from 'axios';
-import { history } from '../store';
 import routes from '../routes';
 
 import * as actions from '../actions/constants';
@@ -25,8 +24,8 @@ export const signInEpic = action$ =>
 export const signOutEpic = action$ =>
   action$.pipe(
     ofType(actions.SIGN_OUT_STARTED),
+    delay(2500),
     mergeMap(action => [
-      history.push(routes.SIGN_IN),
-      console.log(action, 'fuck')
+      authActions.signOutSuccess({})
     ])
   );

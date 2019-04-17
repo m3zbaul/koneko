@@ -1,31 +1,28 @@
-@import '~normalize.css/normalize.css';
-@import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
-@import '~@blueprintjs/core/lib/css/blueprint.css';
+*, *::after, *::before {
+  box-sizing: border-box;
+}
 
 body {
   font-size: 16px;
 }
 
-html, body, #root, #main-container {
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#root,
+#main-container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 #main-container {
-  padding-top: 65px; /* navbar height + normal padding */
-}
-
-.bp3-button {
-  outline: none;
-}
-
-.bp3-navbar-group > button,
-.bp3-navbar-group > span {
-  margin-left: 5px;
-}
-
-.column {
-  flex-grow: 0;
+  overflow-y: auto;
 }
 
 .container {
@@ -33,21 +30,4 @@ html, body, #root, #main-container {
   max-width: 960px;
   margin: 0 auto;
   padding: 15px;
-}
-
-.left {
-  margin-right: auto !important;
-}
-
-.nav {
-  padding: 24px 0;
-}
-
-.right {
-  margin-left: auto !important;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
 }
