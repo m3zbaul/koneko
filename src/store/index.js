@@ -20,12 +20,21 @@ const initialState = {
       started: false,
       error: null
     }
+  },
+  reddit: {
+    posts: {
+      started: false,
+      error: null,
+      result: null
+    }
   }
 };
+
 const persistConfig = {
   key: 'root',
   storage,
 };
+
 const history = createBrowserHistory();
 const rootReducer = createRootReducer();
 const persistedReducer = persistReducer(persistConfig, rootReducer);

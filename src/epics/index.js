@@ -4,9 +4,11 @@
 
 import { combineEpics } from 'redux-observable';
 import { signInEpic, signOutEpic } from './auth';
+import { fetchPosts } from './reddit';
 
 
 const rootEpic = combineEpics(
+  fetchPosts,
   signInEpic,
   signOutEpic
 );
