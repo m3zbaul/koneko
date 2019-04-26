@@ -13,7 +13,7 @@ class PostListItem extends Component {
   }
 
   handleDownload = (event, url) => {
-    location.href = url;
+    window.location.href = url;
   }
 
   render() {

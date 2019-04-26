@@ -2,6 +2,8 @@
 
 A simple React + Webpack 4 boilerplate with dev server to get your development started
 
+[![Build Status](https://travis-ci.com/mezba1/react-boilerplate.svg?branch=master)](https://travis-ci.com/mezba1/react-boilerplate)
+
 ## What's included:
 
 - [x] React 16
