@@ -1,8 +1,8 @@
 import { ofType } from 'redux-observable';
-import { Observable, from, of, concat } from 'rxjs';
-import { catchError, map, mergeMap, delay } from 'rxjs/operators';
+import { from, of } from 'rxjs';
+import { catchError, mergeMap, delay } from 'rxjs/operators';
 import axios from 'axios';
-import routes from '../routes';
+// import routes from '../routes';
 
 import * as actions from '../actions/constants';
 import * as authActions from '../actions/auth';
