@@ -5,8 +5,8 @@
   "dependencies": {
     "axios": "^0.18.1",
     "history": "^4.7.2",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-redux": "^7.0.2",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
@@ -31,5 +31,18 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "1.18.2"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint src --ext .js",
+      "prettier --write",
+      "git add"
+    ]
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    "**/citation-styles": true,
+    "**/locales": true,
+    "**/node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/citation-styles": true,
+    "**/locales": true,
+    "**/node_modules": true
+  },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.rulers": [80, 120]
+}

@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react'
 import { history, persistor, store } from './store';
-import './index.css';
 import { RoutesComponent } from './routes';
 import * as serviceWorker from './serviceWorker';
+import "./index.scss";
 
 
 // persistor.purge();
