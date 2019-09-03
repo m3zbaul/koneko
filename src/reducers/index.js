@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import auth from './auth';
-import reddit from './reddit';
+import authReducer, {initialState as authState} from './auth';
 
 
-export default () => combineReducers({
-  auth,
-  reddit
+export const initialState = {
+  auth: authState
+};
+
+export default combineReducers({
+  auth: authReducer
 });
