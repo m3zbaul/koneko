@@ -1,3 +1,5 @@
+dist: bionic
+
 language: node_js
 
 node_js:
@@ -8,13 +10,7 @@ addons:
     packages:
       # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
       - libgconf-2-4
-
-before_install: # if "install" is overridden
-  # Repo for Yarn
-  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn
+      - xsel
 
 ## Cache NPM folder and Cypress binary
 ## to avoid downloading Cypress again and again
