@@ -19,7 +19,7 @@
     "rxjs": "^6.5.3"
   },
   "scripts": {
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --browser chrome",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "yarn lint --fix",
     "serve": "serve -s build",
