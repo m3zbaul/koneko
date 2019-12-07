@@ -13,7 +13,7 @@ const Default = ({ children, title }) => (
 Default.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
+    PropTypes.node,
   ]).isRequired,
   title: PropTypes.string.isRequired,
 };

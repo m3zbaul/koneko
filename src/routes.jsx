@@ -16,8 +16,12 @@ const routes = [
       // { path: '/', name: 'Home', component: Home, exact: true }
     ],
   },
-  { path: '/page-1', name: 'Page 1', component: Page1, exact: true },
-  { path: '/page-2', name: 'Page 2', component: Page2, exact: true },
+  {
+    path: '/page-1', name: 'Page 1', component: Page1, exact: true,
+  },
+  {
+    path: '/page-2', name: 'Page 2', component: Page2, exact: true,
+  },
 ];
 
 export default routes;

@@ -1,3 +1,4 @@
 const reducerKey = 'app';
 
-const selectAppState = state => state[app];
+export const selectAppState = (state) => state[reducerKey];
+export const selectAppBootState = (state) => state[reducerKey].isBooting;

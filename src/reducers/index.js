@@ -3,9 +3,9 @@ import appReducer, { initialState as appState } from './app';
 
 
 export const initialState = {
-  app: appState
+  app: appState,
 };
 
 export default combineReducers({
-  app: appReducer
+  app: appReducer,
 });
