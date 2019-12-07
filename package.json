@@ -16,15 +16,95 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
+    "lint": "eslint . --ext .js,.jsx",
+    "lint:fix": "yarn lint --fix",
     "start": "cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
-    "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src"
+          ]
+        }
+      }
+    },
+    "extends": [
+      "react-app",
+      "airbnb"
+    ],
+    "rules": {
+      "max-len": [
+        "error",
+        {
+          "code": 80
+        }
+      ],
+      "no-mixed-operators": [
+        "error",
+        {
+          "allowSamePrecedence": true
+        }
+      ],
+      "no-shadow": 1,
+      "import/named": [
+        "error"
+      ],
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "external",
+            "builtin",
+            "internal",
+            "index",
+            "sibling",
+            "parent"
+          ]
+        }
+      ],
+      "jsx-a11y/anchor-is-valid": [
+        "warn",
+        {
+          "components": [
+            "Link"
+          ],
+          "specialLink": [
+            "to"
+          ]
+        }
+      ],
+      "react/no-array-index-key": 1,
+      "react/require-default-props": 0,
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            ".storybook/**",
+            "src/stories/**"
+          ]
+        }
+      ],
+      "react/sort-comp": [
+        2
+      ]
+    }
   },
+  "eslintIgnore": [
+    "build/",
+    "cypress/",
+    "node_modules/",
+    "src/serviceWorker.js"
+  ],
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -33,16 +113,11 @@
   ],
   "devDependencies": {
     "cross-env": "^5.2.1",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
-    "lint-staged": "^9.2.5",
-    "prettier": "1.18.2"
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "eslint src --ext .js",
-      "prettier --write",
-      "git add"
-    ]
+    "eslint-plugin-react": "^7.17.0"
   }
 }
