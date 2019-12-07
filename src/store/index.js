@@ -39,7 +39,7 @@ export default () => {
       const nextRootReducer = require('../reducers');
       /* eslint-enable global-require */
       store.replaceReducer(
-        persistReducer(persistConfig, nextRootReducer)
+        persistReducer(persistConfig, nextRootReducer),
       );
     });
   }
