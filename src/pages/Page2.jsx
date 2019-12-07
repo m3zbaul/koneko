@@ -6,8 +6,9 @@ import DefaultContainer from 'containers/Default';
 
 const Page2 = ({ title }) => (
   <DefaultContainer title={title}>
-    <h2>{title} Page</h2>
+    <h2>{title}</h2>
     <Link to="/">Home</Link>
+    {' | '}
     <Link to="/page-1">Page 1</Link>
   </DefaultContainer>
 );
