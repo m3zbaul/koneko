@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import * as serviceWorker from 'serviceWorker';
 import App from './App';
@@ -8,13 +9,15 @@ import configureStore from './store';
 import 'assets/scss/index.scss';
 
 
-const store = configureStore();
+const { store, persistor } = configureStore();
 
 const renderApp = (Component) => {
   ReactDOM.render(
     <HelmetProvider>
       <Provider store={store}>
-        <Component />
+        <PersistGate loading={null} persistor={persistor}>
+          <Component />
+        </PersistGate>
       </Provider>
     </HelmetProvider>,
     document.getElementById('app-root'),
