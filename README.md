@@ -1,17 +1,12 @@
 # react-boilerplate
 
-A simple React + Webpack 4 boilerplate with dev server to get your development started
+A simple react boilerplate created with CRA (create-react-app).
 
-[![Build Status](https://travis-ci.com/mezba1/react-boilerplate.svg?branch=master)](https://travis-ci.com/mezba1/react-boilerplate) [![Greenkeeper badge](https://badges.greenkeeper.io/mezba1/react-boilerplate.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/mezba1/react-boilerplate.svg?branch=master)](https://travis-ci.com/mezba1/react-boilerplate)
 
 ## What's included:
 
-- [x] React 16
-- [x] Dev server (w/ Hot reloading)
-- [x] ES6, JSX, Babel 7
-- [x] SASS support
-- [x] Seperate stylesheet
-- [x] PostCSS
+- [x] CRA
 
 ## Available Commands
 
